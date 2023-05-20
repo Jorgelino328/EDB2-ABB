@@ -7,10 +7,11 @@ project(EDB2-ABB)
 
 include_directories(include)
 
+file(GLOB_RECURSE TREE_SRC "src/*.cpp")
+
 add_executable(
     EDB2-ABB
-    src/main.cpp
-    src/tree.cpp
+    ${TREE_SRC}
 )
 
 target_include_directories(

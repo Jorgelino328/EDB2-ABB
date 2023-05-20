@@ -17,10 +17,10 @@ int main() {
     scanf("%d",&num);
     if(search(root,num)==1)
     {
-        printf("Número encontrado");
+        printf("Número encontrado\n");
     }
     else
     {
-        printf("Número não encontrado");
+        printf("Número não encontrado\n");
     }
 } 
