@@ -10,6 +10,7 @@ include_directories(include)
 add_executable(
     EDB2-ABB
     src/main.cpp
+    src/tree.cpp
 )
 
 target_include_directories(
