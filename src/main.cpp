@@ -23,4 +23,5 @@ int main() {
     {
         printf("Número não encontrado");
     }
+    system("clear");
 } 
