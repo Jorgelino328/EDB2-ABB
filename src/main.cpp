@@ -13,15 +13,16 @@ int main() {
     root = insert(root,8);
     root = insert(root,12);
     int num;
-    printf("Digite um número para buscar:\n");
-    scanf("%d",&num);
+    cout<<"Digite um número para buscar:\n";
+    cin>>num;
+    system("clear");
     if(search(root,num)==1)
     {
-        printf("Número encontrado\n");
+        cout<<"Número encontrado\n";
     }
     else
     {
-        printf("Número não encontrado\n");
+        cout<<"Número não encontrado\n";
     }
-    system("clear");
+    
 } 
