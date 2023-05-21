@@ -5,21 +5,21 @@ int main()
     BinarySearchTree bst;
 
     // Insere os nodes na ABB
-    bst.insert(50);
-    bst.insert(30);
-    bst.insert(70);
+    bst.insert(32);
+    bst.insert(13);
+    bst.insert(41);
+    bst.insert(5);
     bst.insert(20);
-    bst.insert(40);
+    bst.insert(36);
     bst.insert(60);
-    bst.insert(80);
-    
+
     // Sequência de visitação da ABB em pré-ordem.
     std::string result = bst.pre_ordem();
     std::cout << "Sequencia de Visitação : " << result << std::endl;
 
-    bst.remove(80);
+    bst.remove(7);
 
-    // Sequência de visitação da ABB em pré-ordem.
+    //Sequência de visitação da ABB em pré-ordem.
     std::string traversalResult = bst.pre_ordem();
     std::cout << "Sequencia de Visitação : " << traversalResult << std::endl;
 
@@ -27,5 +27,17 @@ int main()
         std::cout << "20 Encontrado" << std::endl;
     else
         std::cout << "20 NÃO Encontrado" << std::endl;
+
+    if(bst.ehCheia())
+        std::cout << "É BST CHEIA" << std::endl;
+    else
+        std::cout << "NÃO É BST CHEIA" << std::endl;
+    
+    if(bst.ehCompleta())
+        std::cout << "É BST COMPLETA" << std::endl;
+    else
+        std::cout << "NÃO É BST COMPLETA" << std::endl;
+
+    bst.imprimeArvore(1);
     return 0;
 }
