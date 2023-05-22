@@ -199,3 +199,14 @@ void BinarySearchTree::OrdemT(BSTNode* root, int &cont, int n, int &enesimo){
     OrdemT(root->left, cont, n, enesimo);
 
 }
+int BinarySearchTree::enesimoElemento (BSTNode* root,int n){
+    int cont = 0;  // Contador para rastrear a posição atual no percurso em ordem
+    int enesimo = 0; // Variável para armazenar o resultado
+
+
+    // Realiza o percurso em ordem e atualiza o resultado quando encontrar o n-ésimo elemento
+    OrdemT(root, cont, n, enesimo);
+
+
+    return enesimo;
+}
