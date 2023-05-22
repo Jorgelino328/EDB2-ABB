@@ -183,5 +183,19 @@ void BinarySearchTree::imprimeArvore (int s) {
         std::cout << "Erro: Formato Inválido!";
     std::cout << std::endl;
 }
+void BinarySearchTree::OrdemT(BSTNode* root, int &cont, int n, int &enesimo){
+    if (root == nullptr) {
+        return;
+    }
+    // Percorre a subárvore direita
+    OrdemT(root->right, cont, n, enesimo);
+    // Verifica se o elemento atual é o n-ésimo elemento
+    cont++;
+    if (cont == n) {
+        enesimo = root->data;
+        return;
+    }
+    // Percorre a subárvore esquerda
+    OrdemT(root->left, cont, n, enesimo);
 
-
+}
