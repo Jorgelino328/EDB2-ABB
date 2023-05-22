@@ -43,7 +43,7 @@ int main()
     int n = 4;
     int enesimo = bst.enesimoElemento(n);
     std::cout << "O elemento " << n << "º da arvore em ordem é: " << enesimo << std::endl;
-    n=32;
+    n=36;
     int pos = bst.posicao(n);
     std::cout << "A posição do elemento " << n << "º da arvore em ordem é: " << pos << std::endl;
 

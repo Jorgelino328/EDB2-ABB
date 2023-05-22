@@ -229,7 +229,7 @@ int BinarySearchTree::posicao(int x) {
     int cont = 0;  // Inicia o contador como 0
 
     if (OrdemPos(root, cont, x)) {
-        return cont + 1;  // Retorna a posição incrementada por 1
+        return cont;  // Retorna a posição incrementada por 1
     }
 
     return -1;  // Retorna -1 se o elemento não for encontrado na árvore
