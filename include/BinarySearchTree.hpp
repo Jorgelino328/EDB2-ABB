@@ -28,6 +28,9 @@ class BinarySearchTree {
         bool ehCheia();
         bool ehCompleta();
         void imprimeArvore(int format);
+        void OrdemT(BSTNode* root, int &cont, int n, int &enesimo);
+        int enesimoElemento(BSTNode* root,int n);
+
 };
 
 #endif
