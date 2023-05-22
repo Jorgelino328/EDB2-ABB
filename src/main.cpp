@@ -45,7 +45,13 @@ int main()
     std::cout << "O elemento " << n << "º da arvore em ordem é: " << enesimo << std::endl;
     n=36;
     int pos = bst.posicao(n);
-    std::cout << "A posição do elemento " << n << "º da arvore em ordem é: " << pos << std::endl;
+    if(pos>=0){
+        std::cout << "A posição do elemento " << n << "º da arvore em ordem é: " << pos << std::endl;
+    }
+    else{
+        std::cout << "O elemento não foi encontrado" <<std::endl;
+    }
+    
 
     return 0;
 }
