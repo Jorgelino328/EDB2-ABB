@@ -39,5 +39,9 @@ int main()
         std::cout << "NÃO É BST COMPLETA" << std::endl;
 
     bst.imprimeArvore(1);
+
+    int n = 3;
+    int enesimo = bst.enesimoElemento(n);
+    std::cout << "O " << n << "º elemento do percurso em ordem é: " << enesimo << std::endl;
     return 0;
 }
