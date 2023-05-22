@@ -183,11 +183,11 @@ void BinarySearchTree::imprimeArvore (int s) {
         std::cout << "Erro: Formato Inválido!";
     std::cout << std::endl;
 }
-void BinarySearchTree::OrdemT(BSTNode* root, int &cont, int n, int &enesimo){
+void BinarySearchTree::OrdemNes(BSTNode* root, int &cont, int n, int &enesimo){
     if (root == nullptr) {
         return;
     }    // Percorre a subárvore esquerda
-    OrdemT(root->left, cont, n, enesimo);
+    OrdemNes(root->left, cont, n, enesimo);
    
     // Verifica se o elemento atual é o n-ésimo elemento
     cont++;
@@ -196,15 +196,41 @@ void BinarySearchTree::OrdemT(BSTNode* root, int &cont, int n, int &enesimo){
         return;
     }
  // Percorre a subárvore direita
-    OrdemT(root->right, cont, n, enesimo);
-
+    OrdemNes(root->right, cont, n, enesimo);
 }
 int BinarySearchTree::enesimoElemento (int n){
     int cont = 0;  // Contador para rastrear a posição atual no percurso em ordem
     int enesimo = 0; // Variável para armazenar o resultado
     // Realiza o percurso em ordem e atualiza o resultado quando encontrar o n-ésimo elemento
-    OrdemT(root, cont, n, enesimo);
+    OrdemNes(root, cont, n, enesimo);
 
 
     return enesimo;
+}
+
+bool BinarySearchTree::OrdemPos(BSTNode* root, int &cont, int x) {
+    if (root == nullptr) {
+        return false;
+    }
+
+    if (OrdemPos(root->left, cont, x)) {
+        return true;
+    }
+
+    cont++;
+    if (root->data == x) {
+        return true;
+    }
+
+    return OrdemPos(root->right, cont, x);
+}
+
+int BinarySearchTree::posicao(int x) {
+    int cont = 0;  // Inicia o contador como 0
+
+    if (OrdemPos(root, cont, x)) {
+        return cont;  // Retorna a posição incrementada por 1
+    }
+
+    return -1;  // Retorna -1 se o elemento não for encontrado na árvore
 }

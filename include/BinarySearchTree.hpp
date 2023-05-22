@@ -18,6 +18,8 @@ class BinarySearchTree {
         int countNodes(BSTNode* node);
         void imprimeArvore1Helper(BSTNode* root, std::string prefix);
         void imprimeArvore2Helper(BSTNode* root, int number_nodes);
+        void OrdemNes(BSTNode* root, int &cont, int n, int &enesimo);
+        bool OrdemPos(BSTNode* root, int &cont, int x);
 
     public:
         BinarySearchTree();
@@ -28,8 +30,8 @@ class BinarySearchTree {
         bool ehCheia();
         bool ehCompleta();
         void imprimeArvore(int format);
-        void OrdemT(BSTNode* root, int &cont, int n, int &enesimo);
         int enesimoElemento(int n);
+        int posicao (int x);       
 
 };
 

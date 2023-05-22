@@ -39,9 +39,13 @@ int main()
         std::cout << "NÃO É BST COMPLETA" << std::endl;
 
     bst.imprimeArvore(1);
-
+    //enesimo elemento
     int n = 4;
     int enesimo = bst.enesimoElemento(n);
-    std::cout << "O " << n << "º elemento do percurso em ordem é: " << enesimo << std::endl;
+    std::cout << "O elemento " << n << "º da arvore em ordem é: " << enesimo << std::endl;
+    n=32;
+    int pos = bst.posicao(n);
+    std::cout << "A posição do elemento " << n << "º da arvore em ordem é: " << pos << std::endl;
+
     return 0;
 }
