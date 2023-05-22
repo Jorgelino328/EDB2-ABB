@@ -40,7 +40,7 @@ int main()
 
     bst.imprimeArvore(1);
 
-    int n = 3;
+    int n = 4;
     int enesimo = bst.enesimoElemento(n);
     std::cout << "O " << n << "º elemento do percurso em ordem é: " << enesimo << std::endl;
     return 0;
