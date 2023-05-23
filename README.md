@@ -5,3 +5,4 @@
     cd build
     cmake ..
     make
+    ./EDB2-ABB "local-do-arquivo1" "local-do-arquivo2"

@@ -1,57 +1,10 @@
-#include "BinarySearchTree.hpp"
+#include "ArvoreBuscaBinaria.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-    BinarySearchTree bst;
-
-    // Insere os nodes na ABB
-    bst.insert(32);
-    bst.insert(13);
-    bst.insert(41);
-    bst.insert(5);
-    bst.insert(20);
-    bst.insert(36);
-    bst.insert(60);
-
-    // Sequência de visitação da ABB em pré-ordem.
-    std::string result = bst.pre_ordem();
-    std::cout << "Sequencia de Visitação : " << result << std::endl;
-
-    bst.remove(7);
-
-    //Sequência de visitação da ABB em pré-ordem.
-    std::string traversalResult = bst.pre_ordem();
-    std::cout << "Sequencia de Visitação : " << traversalResult << std::endl;
-
-    if(bst.search(20))
-        std::cout << "20 Encontrado" << std::endl;
-    else
-        std::cout << "20 NÃO Encontrado" << std::endl;
-
-    if(bst.ehCheia())
-        std::cout << "É BST CHEIA" << std::endl;
-    else
-        std::cout << "NÃO É BST CHEIA" << std::endl;
+    ArvoreBuscaBinaria abb;
     
-    if(bst.ehCompleta())
-        std::cout << "É BST COMPLETA" << std::endl;
-    else
-        std::cout << "NÃO É BST COMPLETA" << std::endl;
-
-    bst.imprimeArvore(1);
-    //enesimo elemento
-    int n = 4;
-    int enesimo = bst.enesimoElemento(n);
-    std::cout << "O elemento " << n << "º da arvore em ordem é: " << enesimo << std::endl;
-    n=36;
-    int pos = bst.posicao(n);
-    if(pos>=0){
-        std::cout << "A posição do elemento " << n << "º da arvore em ordem é: " << pos << std::endl;
-    }
-    else{
-        std::cout << "O elemento não foi encontrado" <<std::endl;
-    }
-    
+    abb.lerArquivos(argv[1],argv[2]);
 
     return 0;
 }
