@@ -24,6 +24,7 @@ class ArvoreBuscaBinaria {
         void imprimeArvore2Helper(NoABB* raiz, int numeroNos);
         void ordemNes(NoABB* raiz, int &cont, int n, int &enesimo);
         bool ordemPos(NoABB* raiz, int &cont, int x);
+        double media (NoABB* raiz);       
 
     public:
         ArvoreBuscaBinaria();
@@ -36,7 +37,9 @@ class ArvoreBuscaBinaria {
         bool ehCompleta();
         void imprimeArvore(int s);
         int enesimoElemento(int n);
-        int posicao (int x);       
+        int posicao (int x);  
+        int mediana ();
+        double media (int x);     
 
 };
 

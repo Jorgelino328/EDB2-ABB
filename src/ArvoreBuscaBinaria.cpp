@@ -179,12 +179,12 @@ void ArvoreBuscaBinaria::lerArquivos(std::string arquivo1 , std::string arquivo2
             else if(comando == "POSICAO"){
                 std::cout << posicao(valor) << std::endl;
             }
-            /*else if(comando == "MEDIANA"){
-                std::cout << mediana() << std::endl;
-            }*/
-            /*else if(comando == "MEDIA"){
-                std::cout << media(valor) << std::endl;
-            }*/
+            else if(comando == "MEDIANA"){
+                std::cout <<"MEDIANA: "<< mediana() << std::endl;
+            }
+            else if(comando == "MEDIA"){
+                std::cout<<"MEDIA: " << media(valor) << std::endl;
+            }
             else if(comando == "CHEIA"){
                 if(ehCheia())
                    std::cout << "A árvore é cheia" << std::endl;
@@ -301,4 +301,42 @@ int ArvoreBuscaBinaria::posicao(int x) {
     }
 
     return -1;  // Retorna -1 se o elemento não for encontrado na árvore
+}
+int ArvoreBuscaBinaria::mediana(){
+    if((contarNos(raiz)%2)==0){
+        return enesimoElemento ((contarNos(raiz)/2));
+    }
+    else{
+        int y=(contarNos(raiz)+1)/2;
+        return enesimoElemento (y);
+    }
+
+}
+double ArvoreBuscaBinaria::media (int x){
+    NoABB* newraiz = buscarHelper(raiz, x);
+    if (newraiz == nullptr) {
+        return 0.0; 
+    }
+     return media(newraiz);
+}
+double ArvoreBuscaBinaria::media(NoABB* newraiz){
+    if (newraiz == nullptr) {
+        return 0.0;
+    }
+    int quantiNos = 1;
+    double soma = newraiz->dado;
+    
+     if (newraiz->esquerda != nullptr) {
+        soma += media(newraiz->esquerda); // soma os nós da subárvore esquerda
+        quantiNos += contarNos(newraiz->esquerda); // conta o número de nós da subárvore esquerda
+    }
+  
+    if (newraiz->direita != nullptr) {
+        soma += media(newraiz->direita); // soma os nós da subárvore direita
+        quantiNos += contarNos(newraiz->direita); // conta o número de nós da subárvore direita
+    }
+  
+    // Retorna a média aritmética
+    return soma / quantiNos;
+    
 }
