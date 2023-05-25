@@ -249,6 +249,15 @@ void ArvoreBuscaBinaria::imprimeArvore (int s) {
     std::cout << std::endl;
 }
 
+/**
+ * @brief Percorre a árvore em ordem e encontra o n-ésimo elemento.
+ *
+ * @param raiz O ponteiro para a raiz da árvore.
+ * @param cont O contador da posição atual em ordem.
+ * @param n O número do elemento.
+ * @param enesimo n-ésimo numero.
+ */
+
 void ArvoreBuscaBinaria::ordemNes(NoABB* raiz, int &cont, int n, int &enesimo){
     if (raiz == nullptr) {
         return;
@@ -266,15 +275,30 @@ void ArvoreBuscaBinaria::ordemNes(NoABB* raiz, int &cont, int n, int &enesimo){
     ordemNes(raiz->direita, cont, n, enesimo);
 }
 
+/**
+ * @brief Retorna o n-ésimo elemento da árvore.
+ *
+ * @param n O número escolhido pelo usuario.
+ * @return o resutado do n-ésimo número. Retorna -1 se o elemento não for encontrado.
+ */
+
 int ArvoreBuscaBinaria::enesimoElemento (int n){
-    int cont = 0;  // Contador para rastrear a posição atual no percurso em ordem
-    int enesimo = 0; // Variável para armazenar o resultado
-    // Realiza o percurso em ordem e atualiza o resultado quando encontrar o n-ésimo elemento
+    int cont = 0;  
+    int enesimo = 0; 
     ordemNes(raiz, cont, n, enesimo);
 
 
     return enesimo;
 }
+
+/**
+ * @brief Verifica a existencia de um elemento existe na árvore.
+ *
+ * @param raiz O ponteiro para a raiz da árvore.
+ * @param cont O contador para rastrear a posição em ordem.
+ * @param x O elemento que vai ser verificado.
+ * @return true se o elemento existe na árvore, false senão.
+ */
 
 bool ArvoreBuscaBinaria::ordemPos(NoABB* raiz, int &cont, int x) {
     if (raiz == nullptr) {
@@ -293,15 +317,29 @@ bool ArvoreBuscaBinaria::ordemPos(NoABB* raiz, int &cont, int x) {
     return ordemPos(raiz->direita, cont, x);
 }
 
+/**
+ * @brief Retorna a posição dos elementos na árvore.
+ *
+ * @param x O elemento pesquisado na árvore.
+ * @return A posição do elemento na árvore ou -1 se não for encontrado.
+ */
+
 int ArvoreBuscaBinaria::posicao(int x) {
-    int cont = 0;  // Inicia o contador como 0
+    int cont = 0;  
 
     if (ordemPos(raiz, cont, x)) {
-        return cont;  // Retorna a posição incrementada por 1
+        return cont; 
     }
 
-    return -1;  // Retorna -1 se o elemento não for encontrado na árvore
+    return -1;  
 }
+
+/**
+ * @brief Retorna a mediana da árvore.
+ *
+ * @return A mediana da árvore.
+ */
+
 int ArvoreBuscaBinaria::mediana(){
     if((contarNos(raiz)%2)==0){
         return enesimoElemento ((contarNos(raiz)/2));
@@ -312,6 +350,14 @@ int ArvoreBuscaBinaria::mediana(){
     }
 
 }
+
+/**
+ * @brief Calcula a média dos elementos da subárvore a partir do x.
+ *
+ * @param x O valor presente no nó raiz da subárvore a ser considerada.
+ * @return A média dos elementos da subárvore ou 0.0 se o valor não for encontrado.
+ */
+
 double ArvoreBuscaBinaria::media (int x){
     NoABB* newraiz = buscarHelper(raiz, x);
     if (newraiz == nullptr) {
@@ -319,6 +365,14 @@ double ArvoreBuscaBinaria::media (int x){
     }
      return media(newraiz);
 }
+
+/**
+ * @brief Calcula a média dos elementos presentes na subárvore.
+ *
+ * @param newraiz O nó raiz da subárvore.
+ * @return A média dos elementos da subárvore.
+ */
+
 double ArvoreBuscaBinaria::media(NoABB* newraiz){
     if (newraiz == nullptr) {
         return 0.0;
