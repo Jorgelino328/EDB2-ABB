@@ -2,9 +2,10 @@
 
 int main(int argc, char *argv[])
 {
-    ArvoreBuscaBinaria abb;
+    ArvoreBuscaBinaria abb; //<! Cria um novo objeto abb
     
-    abb.lerArquivos(argv[1],argv[2]);
+    //Lê os arquivos inputados, executando seus respectivos comandos
+    abb.lerArquivos(argv[1],argv[2]); 
 
     return 0;
 }
