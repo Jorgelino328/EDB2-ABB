@@ -194,6 +194,28 @@ void ArvoreBuscaBinaria::imprimeArvore2Helper(NoABB* no, int numeroNos) {
     std::cout << ")";
 }
 
+double ArvoreBuscaBinaria::media(NoABB* newraiz){
+    if (newraiz == nullptr) {
+        return 0.0;
+    }
+    int quantiNos = 1;
+    double soma = newraiz->dado;
+    
+     if (newraiz->esquerda != nullptr) {
+        soma += media(newraiz->esquerda); // soma os nós da subárvore esquerda
+        quantiNos += contarNos(newraiz->esquerda); // conta o número de nós da subárvore esquerda
+    }
+  
+    if (newraiz->direita != nullptr) {
+        soma += media(newraiz->direita); // soma os nós da subárvore direita
+        quantiNos += contarNos(newraiz->direita); // conta o número de nós da subárvore direita
+    }
+  
+    // Retorna a média aritmética
+    return soma / quantiNos;
+    
+}
+
 NoABB* ArvoreBuscaBinaria::minNo(NoABB* no) {
     // Inicia o nó atual com o nó passado como argumento.
     NoABB* current = no;
@@ -221,7 +243,6 @@ int ArvoreBuscaBinaria::contarNos(NoABB* raiz) {
 void ArvoreBuscaBinaria::lerArquivos(std::string arquivo1 , std::string arquivo2){
     int numero;
     std::ifstream arquivo_entrada;
-
     // Abre o arquivo de entrada e lê os valores da ABB
     arquivo_entrada.open(arquivo1);
     if (arquivo_entrada.is_open()) { 
@@ -249,8 +270,11 @@ void ArvoreBuscaBinaria::lerArquivos(std::string arquivo1 , std::string arquivo2
             else if(comando == "REMOVA"){
                 remover(valor);
             }
-            else if(comando == "BUSCA"){
-                buscar(valor);
+            else if(comando == "BUSCAR"){
+                if(buscar(valor))
+                    std::cout << "Chave encontrada" << std::endl;
+                else
+                    std::cout << "Chave não encontrada" << std::endl;
             }
             else if(comando == "ENESIMO"){
                 std::cout << enesimoElemento(valor) << std::endl;
@@ -376,8 +400,27 @@ int ArvoreBuscaBinaria::posicao(int x) {
     int cont = 0;  // Inicia o contador como 0
 
     if (ordemPos(raiz, cont, x)) {
-        return cont;  // Retorna a posição incrementada por 1
+        return cont; 
     }
 
-    return -1;  // Retorna -1 se o elemento não for encontrado na árvore
+    return -1;  
+}
+
+int ArvoreBuscaBinaria::mediana(){
+    if((contarNos(raiz)%2)==0){
+        return enesimoElemento ((contarNos(raiz)/2));
+    }
+    else{
+        int y=(contarNos(raiz)+1)/2;
+        return enesimoElemento (y);
+    }
+
+}
+
+double ArvoreBuscaBinaria::media (int x){
+    NoABB* newraiz = buscarHelper(raiz, x);
+    if (newraiz == nullptr) {
+        return 0.0; 
+    }
+     return media(newraiz);
 }
